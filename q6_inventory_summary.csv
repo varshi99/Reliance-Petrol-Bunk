@@ -1,0 +1,4 @@
+fuel_type,deliveries,litres_delivered,litres_sold,min_closing_stock
+Diesel,24,50500.0,23836.05,6545.03
+Petrol,26,50500.0,40662.45,3339.3
+Premium Petrol,26,51500.0,5719.18,1722.5

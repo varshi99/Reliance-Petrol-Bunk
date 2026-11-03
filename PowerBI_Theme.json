@@ -1,0 +1,31 @@
+{
+  "name": "Petrol Bunk Analytics - Executive Dark",
+  "dataColors": ["#3B8BFF", "#2EC4B6", "#FFB000", "#8E7DBE", "#FF5C5C", "#3DDC97"],
+  "background": "#0F1B33",
+  "foreground": "#FFFFFF",
+  "tableAccent": "#3B8BFF",
+  "good": "#3DDC97",
+  "neutral": "#FFB000",
+  "bad": "#FF5C5C",
+  "maximum": "#3B8BFF",
+  "center": "#2EC4B6",
+  "minimum": "#1B2A4A",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#FFFFFF" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#9FB0CF" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#FFFFFF" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#1B2A4A" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#1B2A4A" } }, "radius": 10 }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#0F1B33" } }, "transparency": 0 }]
+      }
+    }
+  }
+}

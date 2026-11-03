@@ -1,0 +1,17 @@
+============================================================
+DATA QUALITY REPORT - PETROL BUNK ANALYTICS
+============================================================
+Sales rows read                      : 5,000
+Duplicate transaction IDs removed    : 0
+Rows dropped (missing values)        : 0
+Rows dropped (litres/price <= 0)     : 0
+Sales rows after cleaning            : 5,000
+Amount validation failures           : 0
+Weekend flag mismatches              : 0
+Date range                           : 01 Aug 2026 to 29 Oct 2026
+Inventory rows                       : 270
+Inventory stock-balance errors (>0.01 L): 0
+Inventory rows below reorder level   : 0
+Litres sold - sales vs inventory     : 70,217.68 vs 70,217.68
+Expense rows                         : 12
+Files written to                     : /home/claude/proj/Reliance_Petrol_Bunk_Analytics/Outputs

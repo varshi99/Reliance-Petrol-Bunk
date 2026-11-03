@@ -1,0 +1,4 @@
+shift,first_hour,last_hour,transactions,litres,revenue,revenue_share_pct
+Morning,6,13,2562,35834.84,3582159.85,51.1
+Evening,14,21,2349,33085.77,3299368.84,47.06
+Night,22,22,89,1297.07,128730.06,1.84

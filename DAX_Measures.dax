@@ -1,0 +1,69 @@
+-- Create these measures in Power BI after importing Dataset/fuel_sales.csv
+Total Revenue = SUM(fuel_sales[sales_amount_inr])
+
+Total Litres Sold = SUM(fuel_sales[litres_sold])
+
+Total Transactions = DISTINCTCOUNT(fuel_sales[transaction_id])
+
+Average Transaction Value = DIVIDE([Total Revenue], [Total Transactions], 0)
+
+Average Litres per Transaction = DIVIDE([Total Litres Sold], [Total Transactions], 0)
+
+Revenue per Litre = DIVIDE([Total Revenue], [Total Litres Sold], 0)
+
+-- Add a calculated column:
+Sales Hour = HOUR(TIMEVALUE(fuel_sales[transaction_time]))
+
+-- Optional date table:
+Calendar = CALENDAR(MIN(fuel_sales[transaction_date]), MAX(fuel_sales[transaction_date]))
+
+-- After creating Calendar, add:
+Year = YEAR('Calendar'[Date])
+Month = FORMAT('Calendar'[Date], "MMM")
+Month Number = MONTH('Calendar'[Date])
+Day Name = FORMAT('Calendar'[Date], "ddd")
+
+
+-- ============================================================
+-- Executive Overview (dark dashboard) measures
+-- Requires the Calendar table and relationships from the guide
+-- ============================================================
+
+Revenue Previous Month =
+CALCULATE ( [Total Revenue], DATEADD ( 'Calendar'[Date], -1, MONTH ) )
+
+Revenue MoM % =
+DIVIDE ( [Total Revenue] - [Revenue Previous Month], [Revenue Previous Month] )
+
+Transactions Previous Month =
+CALCULATE ( [Total Transactions], DATEADD ( 'Calendar'[Date], -1, MONTH ) )
+
+Transactions MoM % =
+DIVIDE ( [Total Transactions] - [Transactions Previous Month], [Transactions Previous Month] )
+
+Litres Previous Month =
+CALCULATE ( [Total Litres Sold], DATEADD ( 'Calendar'[Date], -1, MONTH ) )
+
+Litres MoM % =
+DIVIDE ( [Total Litres Sold] - [Litres Previous Month], [Litres Previous Month] )
+
+-- Text for the "Monthly Executive Summary" cards
+Revenue vs Prev Month Label =
+"Previous Month: " & FORMAT ( [Revenue Previous Month], "#,##0" ) & " (" & FORMAT ( [Revenue MoM %], "+0.0%;-0.0%" ) & ")"
+
+-- Conditional-format font colour (use as "Field value" for the delta text)
+MoM Colour =
+IF ( [Revenue MoM %] >= 0, "#3DDC97", "#FF5C5C" )
+
+Revenue Share % =
+DIVIDE ( [Total Revenue], CALCULATE ( [Total Revenue], ALL ( fuel_sales[fuel_type] ) ) )
+
+Peak Hour Transactions =
+MAXX ( VALUES ( fuel_sales[Sales Hour] ), [Total Transactions] )
+
+Operating Expenses = SUM ( operating_expenses[expense_amount_inr] )
+
+-- Revenue minus operating expenses (NOT gross profit: the dataset has no fuel purchase cost)
+Revenue After Opex = [Total Revenue] - [Operating Expenses]
+
+Opex % of Revenue = DIVIDE ( [Operating Expenses], [Total Revenue] )
