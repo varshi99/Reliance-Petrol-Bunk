@@ -157,33 +157,6 @@ Reliance_Petrol_Bunk_Analytics/
     └── analysis_results/
 ```
 
----
-
-## 📈 Dashboard & Visualizations
-
-The project includes an executive dashboard preview and supporting analytical visualizations.
-
-### Executive Overview
-
-![Executive Dashboard](Images/executive_overview.png)
-
-### Revenue by Fuel Type
-
-![Revenue by Fuel](Images/revenue_by_fuel.png)
-
-### Daily Revenue Trend
-
-![Daily Revenue](Images/daily_revenue_trend.png)
-
-### Transactions by Hour
-
-![Transactions by Hour](Images/transactions_by_hour.png)
-
-### Payment Method Distribution
-
-![Payment Methods](Images/payment_method_share.png)
-
----
 
 ## 🧹 Data Cleaning & Processing
 
