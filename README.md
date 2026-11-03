@@ -320,4 +320,3 @@ An end-to-end business analytics project combining three important business doma
 
 Built using Excel, SQL, Python, Pandas, Matplotlib, and Power BI to demonstrate practical data analytics and business intelligence skills.
 
-If
